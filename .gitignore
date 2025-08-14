@@ -1,0 +1,35 @@
+# Dados temporários e cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Arquivos de dados grandes
+*.zip
+*.nc
+*.csv
+data/raw/
+data/processed/
+
+# Ambientes virtuais
+venv/
+env/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
