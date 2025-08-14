@@ -209,7 +209,7 @@ Data variables: (17)
 
 ### Estatísticas Climatológicas (Brasília 2024)
 ```
-📍 Localização: -15.79°S, 47.93°W
+🏢 Localização: -15.79°S, 47.93°W
 ⛰️ Altitude: 1161 metros
 💧 Precipitação total anual: 1399 mm
 🌡 Temperatura média anual: 22.0°C
@@ -270,19 +270,16 @@ Data variables: (17)
 
 ```
 XISIC/
-├── XISIC.py                    # Módulo principal
-├── README.md                   # Esta documentação
-├── examples/
-│   ├── basic_analysis.py       # Análise básica
-│   ├── correlation_analysis.py # Análise de correlações
-│   ├── extreme_analysis.py     # Análise de extremos
-│   └── spatial_analysis.py     # Análise espacial
-├── data/
-│   ├── raw/                    # Dados brutos (ZIP/CSV)
-│   └── processed/              # Dados processados (NetCDF)
-└── docs/
-    ├── metodologia.md          # Metodologia detalhada
-    └── referencias.md          # Referências bibliográficas
+├── XISIC.py                     # Módulo principal
+├── README.md                    # Esta documentação
+├── requirements.txt             # Dependências Python
+├── assets/
+│   └── banner-xi-sic-2025.png   # Banner do evento
+├── data/                        # Dados do projeto
+├── docs/                        # Documentação adicional
+├── exemples/                    # Exemplos de uso
+└── notebooks/                   # Jupyter notebooks
+    └── XI_SIC_2025_PDMP.ipynb   # Notebook principal do minicurso
 ```
 
 ---
