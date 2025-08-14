@@ -6,11 +6,6 @@ __pycache__/
 .Python
 *.so
 
-# Arquivos de dados grandes
-*.zip
-*.nc
-*.csv
-
 # Ambientes virtuais
 venv/
 env/
