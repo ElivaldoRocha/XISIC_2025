@@ -1,6 +1,6 @@
 # Processamento de Dados Meteorológicos com Python (PDMP)
 
-![XI SIC & VII SIMCA](assets\banner-xi-sic-2025.png.png)
+![XI SIC & VII SIMCA](assets/banner-xi-sic-2025.png)
 
 ## XI Simpósio Internacional de Climatologia & VII Seminário Internacional de Meteorologia e Climatologia do Amazonas
 
