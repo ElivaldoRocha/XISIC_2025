@@ -10,8 +10,6 @@ __pycache__/
 *.zip
 *.nc
 *.csv
-data/raw/
-data/processed/
 
 # Ambientes virtuais
 venv/
