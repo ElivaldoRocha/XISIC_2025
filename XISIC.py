@@ -84,8 +84,9 @@ License:
     Desenvolvido para fins educacionais e científicos no contexto do XI SIC 2025.
     Uso livre para pesquisa acadêmica e aplicações meteorológicas.
 
-Version: 1.0.0
+Version: 1.0.1
 Created: Agosto 2025
+Updated: Correção para compatibilidade NetCDF
 """
 
 import glob
@@ -122,6 +123,59 @@ class NetCDFConversionResult(BaseModel):
     total_files_found: int = 0
     saved_paths: List[str] = []
     failed_files: List[str] = []
+
+
+def clean_variable_names(data_vars):
+    """
+    Limpa nomes de variáveis para serem compatíveis com NetCDF.
+    
+    Remove ou substitui caracteres não permitidos:
+    - "/" -> "_per_"
+    - "(" -> "_"
+    - ")" -> "_" 
+    - "°" -> "deg"
+    - múltiplos "_" -> "_"
+    - remove "_" do final
+    
+    Args:
+        data_vars (dict): Dicionário com variáveis do xarray.
+        
+    Returns:
+        dict: Dicionário com nomes de variáveis limpos.
+    """
+    cleaned_vars = {}
+    
+    for var_name, var_data in data_vars.items():
+        # Aplicar substituições
+        clean_name = (var_name
+                     .replace('/', '_per_')
+                     .replace('(', '_')
+                     .replace(')', '_')
+                     .replace('°', 'deg')
+                     .replace(' ', '_')
+                     .replace(',', '_')
+                     .replace('-', '_')
+                     .replace('.', '_')
+                     .replace('²', '2')
+                     .replace('³', '3'))
+        
+        # Remover múltiplos underscores consecutivos
+        clean_name = re.sub('_+', '_', clean_name)
+        
+        # Remover underscore do início e fim
+        clean_name = clean_name.strip('_')
+        
+        # Garantir que não comece com número
+        if clean_name and clean_name[0].isdigit():
+            clean_name = 'var_' + clean_name
+            
+        # Garantir que não seja vazio
+        if not clean_name:
+            clean_name = 'unknown_variable'
+            
+        cleaned_vars[clean_name] = var_data
+    
+    return cleaned_vars
 
 
 def extract_and_save_csvs(zip_path: str, year: int) -> CSVExtractionResult:
@@ -437,6 +491,9 @@ def parse_inmet_csv_to_netcdf_robust(csv_file_path: str,
             ['region', 'uf', 'wmo_code', 'date', 'hour_utc', 'lat', 'lon', 'alt'],
             var_array
         )
+
+    # CORREÇÃO APLICADA: Limpar nomes das variáveis antes de criar o dataset
+    data_vars = clean_variable_names(data_vars)
 
     # Coordenadas
     coords = {
