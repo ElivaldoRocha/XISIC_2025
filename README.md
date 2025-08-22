@@ -8,6 +8,8 @@
 **Local:** Auditório SUDAM, Belém-PA  
 **Organização:** SBMET, UFPA, UFAM  
 **Website:** [https://sic2025.com.br/](https://sic2025.com.br/)
+**Notebook Introdução:** [Introdução ao Python](https://colab.research.google.com/drive/1Mx32ek9agpNQlgBYFIxPTel69VWiVHRx?usp=sharing)
+**Notebook XISIC:** [Exemplo - Pará](https://colab.research.google.com/drive/1aGSk_eckFKzMBEe66FOsoIjluyYBo3-o?usp=sharing)
 
 ---
 
